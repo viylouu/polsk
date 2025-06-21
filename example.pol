@@ -1,0 +1,86 @@
+// Variable Declarations
+
+// declare a variable using the "⌞" unary op
+⌞x
+// where x is the variable name
+// you can then assign a value to x using the "=" infix op
+x = 5
+// or you could define, and assign on the same line
+⌞x = 5
+// this would be parsed like this
+(⌞ (x)) = (5)
+// or with keywords
+(define (x)) assign (5)
+// due to the nature of the language, you can do stuff like this!
+= 5 x⌞
+// weird right?
+// well this parses just like this
+assign (5) ((x) define)
+// reads just like... almost like english! but its simple!
+// if i just format it like a regular language, then its easy to read
+assign(5, define(x))
+// one thing to note: the parser parses stuff from left to right
+// you can't do this for semi-obvious reasons though
+⌞5 = x
+// the definition operator doesent accept literals!
+
+// Using Data Transformers (or Functions)
+
+// data transformers are like functions, except every parameter is a reference that gets changed (maybe) when you use it in the function
+// for example, you can print the value of x like this
+print ;λx
+// where the ; post op is used to denote a parameter group
+// and the λ unary op is used to denote a parameter
+
+// Defining Data Transformers
+
+// create a data transformer using the "ƒ" infix op
+ƒdouble ;λx
+// this one is a little complicated
+// ƒ takes in a name, and a parameter group, denoted by the span op: ;
+// a parameter group is a type of variable
+// but in this case, the group only contains one parameter
+// then after the ";" we have the "λ" to denote a parameter, and a name
+// mutating input
+ƒdouble ;λx = λx * 2
+// to mutate an input, you just use the λ unary op to signify you are modifying it instead of just using it
+// mutli line functions
+ƒfibb ;λn =
+    ? n ≤ 1
+        ↵
+    : 
+        ⌞nm1 = n - 1
+        ⌞nm2 = n - 2
+        λn = fibb ;λnm1 + fibb ;λnm2
+// here we do have one new concept: ↵
+// this is a unique one because it has no inputs!
+// all it is is just an early return
+
+// Parameter Groups
+
+// parameter groups are used as input to functions
+// you can define a parameter group like this
+; λparam1 λparam2 λetc
+// using the ; span op for the start, and denoting each parameter with λ
+// you can have optional parameters too using the ~ unary op
+; λparam1 ~λoptional λparam2
+// if the optional parameter isnt given, it's assigned nil
+
+// Control Flow
+
+// this language has no if statements other than ternary ops!
+// ternary ops consist of the span op ?
+// and the infix op :
+// heres an example
+? true func1 : func2
+// you can actually use this to make your own rudimentary if statement!
+ƒif ;λcond λthen ~λelse = ? cond then : else
+
+// Loops
+
+// while polsk has no loops, you can create your own using recursion
+ƒwhile ;λcond_f λfunc = 
+    ⌞v
+    cond_f ;λv
+    ?v func : ↵
+// something like that
