@@ -1,11 +1,11 @@
-// Meanings
+//////////// Meanings
 // Span op:
 //     a type of operator that consists of some rules to determine what it contains as an alternative to grouping
 // Keeping spans intact:
 //     basically rules for spans that if you break, the program will fail to compile
 
 
-// Variable Declarations
+//////////// Variable Declarations
 
 // declare a variable using the "⌞" unary op
 ⌞x
@@ -31,7 +31,7 @@ assign(5, define(x))
 ⌞5 = x
 // the definition operator doesent accept literals!
 
-// Conditionals
+//////////// Conditionals
 
 // in polsk, we have a "few" conditionals
 // heres a list
@@ -66,7 +66,7 @@ assign(5, define(x))
 // | ⇔      | infix | iff (true if A and B match)                  |
 // -----------------------------------------------------------------
 
-// Using Data Transformers (or Functions)
+//////////// Using Data Transformers (or Functions)
 
 // data transformers are like functions, except every parameter is a reference that gets changed (maybe) when you use it in the function
 // for example, you can print the value of x like this
@@ -74,7 +74,7 @@ print ;λx
 // where the ; post op is used to denote a parameter group
 // and the λ op is used to denote a parameter
 
-// Defining Data Transformers
+//////////// Defining Data Transformers
 
 // create a data transformer using the "ƒ" span op
 ƒdouble ;λx
@@ -96,7 +96,7 @@ print ;λx
 // this is a unique one because it has no inputs!
 // all it is is just an early return
 
-// Parameter Groups
+//////////// Parameter Groups
 
 // parameter groups are used as input to functions
 // you can define a parameter group like this
@@ -107,7 +107,7 @@ print ;λx
 // it must be placed after the λ though to keep the span intact
 // if the optional parameter isnt given, it's assigned nil
 
-// Control Flow
+//////////// Control Flow
 
 // this language has no if statements other than ternary ops!
 // ternary ops consist of the span op ?
@@ -117,7 +117,7 @@ print ;λx
 // you can actually use this to make your own rudimentary if statement!
 ƒif ;λcond λthen λ~else = ? cond then : else
 
-// Loops
+//////////// Loops
 
 // while polsk has no loops, you can create your own using recursion
 ƒwhile ;λcond_f λfunc = 
@@ -126,7 +126,7 @@ print ;λx
     ?v func : ↵
 // something like that
 
-// Macros
+//////////// Macros
 
 // macros are defined very similar to functions
 // the only difference is they use the "µ" span op instead of "ƒ"
